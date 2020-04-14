@@ -9,13 +9,11 @@ class DateFormatter {
 
 
     fun toTextDay(day: String, month: String, year: String): String {
-        var res = ""
-        try {
+        return try {
             val date = LocalDate.of(year.toInt(), month.toInt(), day.toInt())
-            res = date.format(DateTimeFormatter.ofPattern("dd MMMM, EEEE", Locale.forLanguageTag("ru")))
+            date.format(DateTimeFormatter.ofPattern("dd MMMM, EEEE", Locale.forLanguageTag("ru")))
         }catch (ex:DateTimeException){
-            res = "Такого дня не существует"
+            "Такого дня не существует"
         }
-        return res
     }
 }
